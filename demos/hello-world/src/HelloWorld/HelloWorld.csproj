@@ -7,11 +7,10 @@
 
   <ItemGroup>
     <!-- CDK Construct Library dependencies -->
-    <PackageReference Include="Amazon.CDK" Version="1.16.3-devpreview" />
-    <PackageReference Include="Amazon.CDK.AWS.IAM" Version="1.16.3-devpreview" />
-    <PackageReference Include="Amazon.CDK.AWS.SNS" Version="1.16.3-devpreview" />
-    <PackageReference Include="Amazon.CDK.AWS.SNS.Subscriptions" Version="1.16.3-devpreview" />
-    <PackageReference Include="Amazon.CDK.AWS.SQS" Version="1.16.3-devpreview" />
+    <PackageReference Include="Amazon.CDK" Version="1.18.0" />
+    <PackageReference Include="Amazon.CDK.AWS.S3" Version="1.18.0" />
+    <PackageReference Include="Amazon.CDK.AWS.S3.Deployment" Version="1.18.0" />
+    <PackageReference Include="Amazon.CDK.AWS.IAM" Version="1.18.0" />
   </ItemGroup>
 
 </Project>
