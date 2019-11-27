@@ -10,13 +10,14 @@ namespace CustomResources
         public CustomResourcesStack(Construct parent, string id, IStackProps props) : base(parent, id, props)
         {
             // The code that defines your stack goes here
-            BucketProps bucketProps = new BucketProps();
-            bucketProps.AccessControl = BucketAccessControl.PUBLIC_READ_WRITE;
-            bucketProps.BucketName = "reinvent2019cdkdemo";
-            Bucket bucket = new Bucket(this, "ReinventBucket", bucketProps);
+            var bucket = new Bucket(this, "ReinventBucket", new BucketProps
+            {
+                AccessControl = BucketAccessControl.PUBLIC_READ_WRITE,
+                BucketName = "reinvent2019cdkdemo-customresources"
+            });
 
-            Queue queue = new Queue(this, "Queue");
-            bucket.AddEventNotification(EventType.OBJECT_CREATED, new SqsDestination(queue)); 
+            var queue = new Queue(this, "Queue");
+            bucket.AddEventNotification(EventType.OBJECT_CREATED, new SqsDestination(queue));
         }
     }
 }
