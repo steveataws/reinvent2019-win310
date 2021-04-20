@@ -13,22 +13,9 @@ namespace HelloWorld
             var bucket = new Bucket(this, "ReinventBucket", new BucketProps
             {
                 BucketName = "reinvent2019cdkdemo",
-                AccessControl = BucketAccessControl.PUBLIC_READ,
+                PublicReadAccess = true,
                 WebsiteIndexDocument = "index.html"
             });
-
-            // grant access to the pages and resources in the website (setting
-            // Public Read Only on the bucket is not sufficient)
-            bucket.AddToResourcePolicy(new PolicyStatement(new PolicyStatementProps
-            {
-                Effect = Effect.ALLOW,
-                Actions = new [] { "s3:GetObject" },
-                Resources = new [] { bucket.ArnForObjects("*") },
-                Principals = new IPrincipal[]
-                {
-                    new AnyPrincipal()
-                }
-            }));
 
             // deploy the site
             new BucketDeployment(this, "ReinventBucketDeployment", new BucketDeploymentProps
